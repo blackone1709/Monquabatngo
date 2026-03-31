@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <title>Món quà bất ngờ😈</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            user-select: none; /* Tránh bôi đen khi troll */
+        }
+
+        body {
+            font-family: 'Poppins', 'Segoe UI', system-ui, -apple-system, 'Comic Neue', sans-serif;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background-color 0.4s ease, color 0.3s ease;
+            background: linear-gradient(145deg, #ffdde1 0%, #ee9ca7 100%);
+            color: #2d1b2c;
+            padding: 16px;
+        }
+
+        /* Container chính */
+        .container {
+            text-align: center;
+            max-width: 600px;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(3px);
+            border-radius: 68px;
+            padding: 2rem 1.5rem;
+            box-shadow: 0 25px 45px rgba(0, 0, 0, 0.2), 0 0 0 1px rgba(255, 255, 255, 0.5);
+            transition: all 0.3s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+        }
+
+        /* Vui nhộn ban đầu */
+        .happy-area h1 {
+            font-size: 2.6rem;
+            margin-bottom: 0.5rem;
+            background: linear-gradient(135deg, #ff8c00, #ff2e63);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.1);
+            letter-spacing: -0.5px;
+        }
+
+        .gift-icon {
+            font-size: 5rem;
+            margin: 1rem 0;
+            animation: bounceSoft 1.8s infinite ease;
+            display: inline-block;
+            cursor: pointer;
+            filter: drop-shadow(0 8px 12px rgba(0,0,0,0.2));
+        }
+
+        @keyframes bounceSoft {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-12px) rotate(5deg); }
+        }
+
+        .btn-troll {
+            background: linear-gradient(95deg, #ff9a3c, #ff4d6d);
+            border: none;
+            color: white;
+            font-size: 1.8rem;
+            font-weight: bold;
+            padding: 14px 32px;
+            border-radius: 60px;
+            margin-top: 20px;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+            box-shadow: 0 8px 0 #b13e4b;
+            font-family: inherit;
+            letter-spacing: 1px;
+        }
+
+        .btn-troll:active {
+            transform: translateY(4px);
+            box-shadow: 0 4px 0 #b13e4b;
+        }
+
+        .fun-text {
+            font-size: 1.2rem;
+            background: #fff2bb;
+            display: inline-block;
+            padding: 8px 20px;
+            border-radius: 50px;
+            margin: 20px 0 0;
+            font-weight: 600;
+        }
+
+        /* Countdown */
+        .countdown-box {
+            background: #1e1a2f;
+            display: inline-block;
+            padding: 12px 24px;
+            border-radius: 80px;
+            margin: 20px 0;
+            font-size: 2.5rem;
+            font-weight: bold;
+            font-family: monospace;
+            color: #f0f0f0;
+            letter-spacing: 6px;
+            box-shadow: 0 0 0 3px #ffd966, 0 8px 20px black;
+        }
+
+        /* Khi đang troll (dark mode) */
+        body.dark-mode {
+            background: #0b0b1a;
+        }
+
+        body.dark-mode .container {
+            background: rgba(10, 10, 20, 0.9);
+            backdrop-filter: blur(8px);
+            color: #ffb7c5;
+            box-shadow: 0 0 30px rgba(255, 0, 55, 0.3);
+        }
+
+        /* Fullscreen hình ảnh đáng sợ + overlay */
+        .scary-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at center, #000000, #1a0000);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            animation: fadeInFlash 0.2s cubic-bezier(0.2, 1.3, 0.4, 1);
+            backdrop-filter: blur(3px);
+        }
+
+        .scary-image {
+            max-width: 90vw;
+            max-height: 70vh;
+            border-radius: 36px;
+            box-shadow: 0 0 50px rgba(255, 20, 20, 0.8);
+            animation: shakeHorror 0.15s infinite;
+            border: 4px solid #ff0000;
+            object-fit: contain;
+        }
+
+        /* Âm thanh warning */
+        .scary-text {
+            font-size: 2.5rem;
+            font-weight: 900;
+            color: #ff3a4d;
+            text-shadow: 4px 4px 0 #5a0000;
+            margin-top: 28px;
+            background: rgba(0,0,0,0.7);
+            padding: 12px 30px;
+            border-radius: 60px;
+            letter-spacing: 2px;
+        }
+
+        .troll-message {
+            background: #ffefc0;
+            padding: 20px;
+            border-radius: 48px;
+            margin: 20px 0;
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #d14b4b;
+            border-left: 12px solid #ff5e00;
+        }
+
+        .retry-btn {
+            background: #2c2c54;
+            color: white;
+            border: none;
+            font-size: 1.5rem;
+            font-weight: bold;
+            padding: 12px 28px;
+            border-radius: 50px;
+            margin-top: 18px;
+            cursor: pointer;
+            transition: all 0.2s;
+            box-shadow: 0 5px 0 #141432;
+        }
+
+        .retry-btn:active {
+            transform: translateY(3px);
+            box-shadow: 0 2px 0 #141432;
+        }
+
+        /* Animation rung màn hình */
+        @keyframes shakeScreen {
+            0% { transform: translate(1px, 1px) rotate(0deg); }
+            10% { transform: translate(-1px, -2px) rotate(-1deg); }
+            20% { transform: translate(-3px, 0px) rotate(1deg); }
+            30% { transform: translate(3px, 2px) rotate(0deg); }
+            40% { transform: translate(1px, -1px) rotate(1deg); }
+            50% { transform: translate(-1px, 2px) rotate(-1deg); }
+            60% { transform: translate(-3px, 1px) rotate(0deg); }
+            70% { transform: translate(3px, 1px) rotate(-1deg); }
+            80% { transform: translate(-1px, -1px) rotate(1deg); }
+            90% { transform: translate(1px, 2px) rotate(0deg); }
+            100% { transform: translate(0, 0) rotate(0); }
+        }
+
+        .shake-global {
+            animation: shakeScreen 0.25s ease-in-out 0s 2;
+        }
+
+        /* Ẩn hiện */
+        .hidden {
+            display: none !important;
+        }
+
+        .no-scroll {
+            overflow: hidden;
+            height: 100%;
+        }
+
+        button {
+            font-family: inherit;
+        }
+
+        @media (max-width: 550px) {
+            .container {
+                padding: 1.5rem 1rem;
+            }
+            .btn-troll {
+                font-size: 1.4rem;
+                padding: 10px 24px;
+            }
+            .scary-text {
+                font-size: 1.6rem;
+            }
+            .troll-message {
+                font-size: 1.3rem;
+            }
+        }
+
+        /* nút reset nhỏ */
+        .reset-small {
+            background: none;
+            border: none;
+            font-size: 1rem;
+            margin-top: 10px;
+            color: #ff6d8d;
+            cursor: pointer;
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container" id="mainContainer">
+        <!-- GIAO DIỆN DỄ THƯƠNG BAN ĐẦU -->
+        <div id="happyUI">
+            <h1>🎉 BẠN TRÚNG THƯỞNG! 🎉</h1>
+            <div class="gift-icon">🎁✨</div>
+            <p style="font-size: 1.3rem; font-weight: 500;">Một phần quà siêu khủng từ <strong>mình nhé!</strong> đang chờ bạn!</p>
+            <button class="btn-troll" id="surpriseBtn">🔮 NHẬN QUÀ NGAY 🔮</button>
+            <div class="fun-text">⚡ Click ngay - Nhận quà liền tay⚡</div>
+        </div>
+
+        <!-- KHU VỰC COUNTDOWN (Ẩn ban đầu) -->
+        <div id="countdownArea" class="hidden">
+            <div class="countdown-box" id="countdownNumber">3</div>
+            <p style="margin-top: 10px; font-weight: bold;">&#128515 Chuẩn bị nhận bất ngờ...</p>
+        </div>
+
+        <!-- KHU VỰC SAU TROLL (thông báo + thử lại) -->
+        <div id="afterTrollUI" class="hidden">
+            <div class="troll-message">
+                😆 Cá tháng Tư 😆 bạn bị troll rồi!
+            </div>
+            <button class="retry-btn" id="retryBtn">🎈 THỬ LẠI 🎈</button>
+            
+        </div>
+    </div>
+
+    <script>
+        (function() {
+            // DOM elements
+            const happyUI = document.getElementById('happyUI');
+            const countdownArea = document.getElementById('countdownArea');
+            const afterTrollUI = document.getElementById('afterTrollUI');
+            const surpriseBtn = document.getElementById('surpriseBtn');
+            const retryBtn = document.getElementById('retryBtn');
+            const resetSmallBtn = document.getElementById('resetSmallBtn');
+            const countdownNumberSpan = document.getElementById('countdownNumber');
+            const bodyEl = document.body;
+            const container = document.getElementById('mainContainer');
+
+            // State management
+            let isTrollingActive = false;    // đang trong quá trình troll (không cho click thêm)
+            let currentTimeout = null;
+            let countdownInterval = null;
+
+            // Audio context để phát âm thanh bất ngờ (do trình duyệt yêu cầu tương tác người dùng trước)
+            let audioCtx = null;
+            let screamAudioBuffer = null;
+            let isAudioAllowed = false;       // chưa kích hoạt audio context, sẽ kích sau khi click nút đầu tiên
+
+            // Hàm tạo âm thanh "giật mình" dạng beep + tiếng la hét tổng hợp (Web Audio)
+            async function initAudio() {
+                if (audioCtx) return;
+                try {
+                    audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+                    // Tạo một buffer ngắn dạng tiếng scream ghê rợn (tổng hợp sin + noise + pitch down)
+                    const sampleRate = audioCtx.sampleRate;
+                    const duration = 1.2; // 1.2 giây
+                    const frameCount = sampleRate * duration;
+                    const buffer = audioCtx.createBuffer(1, frameCount, sampleRate);
+                    const channelData = buffer.getChannelData(0);
+                    
+                    // Tạo âm thanh: kết hợp tiếng rít + noise + âm trầm rùng rợn
+                    for (let i = 0; i < frameCount; i++) {
+                        const t = i / sampleRate; // time in seconds
+                        // Âm 1: dao động 440Hz -> 880Hz tăng dần + biến dạng
+                        let freq1 = 440 + (t * 400);
+                        let wave1 = Math.sin(2 * Math.PI * freq1 * t) * (1 - t / duration);
+                        // Âm 2: tiếng noise trắng rít
+                        let noise = (Math.random() * 2 - 1) * 0.7;
+                        // Âm 3: low bass drop (80Hz)
+                        let bass = Math.sin(2 * Math.PI * 80 * t) * 0.6 * Math.exp(-t * 3);
+                        // Thêm modulation ghê rợn
+                        let screamMod = Math.sin(2 * Math.PI * 15 * t) * 0.3;
+                        let final = (wave1 * 0.9 + noise * 0.8 + bass + screamMod) * 0.9;
+                        // Giới hạn biên độ
+                        channelData[i] = Math.max(-0.9, Math.min(0.9, final * (1 - t * 0.5)));
+                    }
+                    screamAudioBuffer = buffer;
+                } catch(e) {
+                    console.warn("Web Audio API not supported", e);
+                }
+            }
+
+            // Hàm phát âm thanh giật mình
+            function playScarySound() {
+                if (!audioCtx || !screamAudioBuffer) {
+                    // Nếu chưa init thì thử init và phát lại (nhưng do user gesture đã có)
+                    if (audioCtx && audioCtx.state === 'suspended') {
+                        audioCtx.resume().then(() => {
+                            if (screamAudioBuffer) {
+                                const source = audioCtx.createBufferSource();
+                                source.buffer = screamAudioBuffer;
+                                source.connect(audioCtx.destination);
+                                source.start();
+                            } else {
+                                // fallback beep ngắn
+                                playFallbackBeep();
+                            }
+                        }).catch(e=>console.log(e));
+                    } else if (screamAudioBuffer) {
+                        const source = audioCtx.createBufferSource();
+                        source.buffer = screamAudioBuffer;
+                        source.connect(audioCtx.destination);
+                        source.start();
+                    } else {
+                        playFallbackBeep();
+                    }
+                    return;
+                }
+                if (audioCtx.state === 'suspended') {
+                    audioCtx.resume().then(() => {
+                        const source = audioCtx.createBufferSource();
+                        source.buffer = screamAudioBuffer;
+                        source.connect(audioCtx.destination);
+                        source.start();
+                    }).catch(e=>console.log(e));
+                } else {
+                    const source = audioCtx.createBufferSource();
+                    source.buffer = screamAudioBuffer;
+                    source.connect(audioCtx.destination);
+                    source.start();
+                }
+            }
+
+            function playFallbackBeep() {
+                // fallback dùng âm thanh web simple beep (ít hỗ trợ nhưng vẫn vui)
+                try {
+                    const beepCtx = new (window.AudioContext || window.webkitAudioContext)();
+                    const osc = beepCtx.createOscillator();
+                    const gain = beepCtx.createGain();
+                    osc.type = 'sawtooth';
+                    osc.frequency.value = 880;
+                    gain.gain.value = 0.4;
+                    osc.connect(gain);
+                    gain.connect(beepCtx.destination);
+                    osc.start();
+                    gain.gain.exponentialRampToValueAtTime(0.00001, beepCtx.currentTime + 1);
+                    osc.stop(beepCtx.currentTime + 0.8);
+                    beepCtx.resume();
+                } catch(e) { console.log("no audio fallback"); }
+            }
+
+            // Hiệu ứng rung màn hình (thêm class rồi xóa)
+            function shakeScreenEffect(times = 2) {
+                let count = 0;
+                function addShake() {
+                    if (count >= times) {
+                        bodyEl.classList.remove('shake-global');
+                        return;
+                    }
+                    bodyEl.classList.add('shake-global');
+                    setTimeout(() => {
+                        bodyEl.classList.remove('shake-global');
+                        count++;
+                        setTimeout(addShake, 80);
+                    }, 70);
+                }
+                addShake();
+                // cũng rung nhẹ container
+                container.style.transform = "translateX(0px)";
+                let step = 0;
+                const rumbleInterval = setInterval(() => {
+                    if (step > 10) {
+                        container.style.transform = "";
+                        clearInterval(rumbleInterval);
+                        return;
+                    }
+                    const xShift = (Math.random() - 0.5) * 5;
+                    const yShift = (Math.random() - 0.5) * 3;
+                    container.style.transform = `translate(${xShift}px, ${yShift}px)`;
+                    step++;
+                }, 30);
+                setTimeout(() => {
+                    clearInterval(rumbleInterval);
+                    container.style.transform = "";
+                }, 300);
+            }
+
+            // Hiển thị overlay fullscreen đáng sợ (hình ảnh + âm thanh + rung)
+            let scaryOverlayElement = null;
+
+            function showScaryFullscreen() {
+                // Xóa overlay cũ nếu có
+                if (scaryOverlayElement) {
+                    scaryOverlayElement.remove();
+                    scaryOverlayElement = null;
+                }
+                // Tạo overlay fullscreen
+                const overlay = document.createElement('div');
+                overlay.className = 'scary-overlay';
+                // Tạo hình ảnh đáng sợ (dùng ảnh mặt clown/jumpscare style từ placeholder img, nhưng để đảm bảo tự nhiên, dùng ảnh base64 đơn giản "scary face")
+                // Sử dụng ảnh SVG đáng sợ + mặt quỷ để tránh lỗi link
+                const scaryImg = document.createElement('img');
+                scaryImg.className = 'scary-image';
+                // Dùng DataURL hình mặt quỷ/giật mình dễ thương nhưng rùng mình (đảm bảo không cần mạng)
+                scaryImg.src = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 400'%3E%3Crect width='400' height='400' fill='%231a0c0c'/%3E%3Ccircle cx='200' cy='160' r='80' fill='%23332222'/%3E%3Ccircle cx='140' cy='130' r='15' fill='%23ff4444'/%3E%3Ccircle cx='260' cy='130' r='15' fill='%23ff4444'/%3E%3Cpath d='M120 220 Q200 280 280 220' stroke='%23ff7777' stroke-width='12' fill='none' stroke-linecap='round' /%3E%3Cpath d='M170 190 L190 200 L170 210 Z' fill='white'/%3E%3Cpath d='M230 190 L210 200 L230 210 Z' fill='white'/%3E%3Ctext x='200' y='350' font-size='40' fill='%23ff5555' text-anchor='middle' font-weight='bold'%3EBOO!%3C/text%3E%3C/svg%3E";
+                // thêm text đáng sợ
+                const scaryTextDiv = document.createElement('div');
+                scaryTextDiv.className = 'scary-text';
+                scaryTextDiv.innerText = '⚡ BẤT NGỜ CHƯA?! ⚡';
+                overlay.appendChild(scaryImg);
+                overlay.appendChild(scaryTextDiv);
+                document.body.appendChild(overlay);
+                document.body.classList.add('no-scroll');
+                scaryOverlayElement = overlay;
+
+                // Phát âm thanh
+                playScarySound();
+
+                // Rung màn hình mạnh
+                shakeScreenEffect(3);
+                // Tự động xóa overlay sau 1.2 giây (để lộ thông báo troll)
+                setTimeout(() => {
+                    if (scaryOverlayElement) {
+                        scaryOverlayElement.remove();
+                        scaryOverlayElement = null;
+                        document.body.classList.remove('no-scroll');
+                        // Sau khi ẩn overlay fullscreen -> hiển thị thông báo troll + nút thử lại
+                        showTrollMessage();
+                    }
+                }, 1300);
+            }
+
+            function showTrollMessage() {
+                // Chuyển giao diện: ẩn happyUI và countdown, hiển thị afterTrollUI
+                happyUI.classList.add('hidden');
+                countdownArea.classList.add('hidden');
+                afterTrollUI.classList.remove('hidden');
+                // Đảm bảo container không bị transform lỗi
+                container.style.transform = "";
+                // dark mode cho body
+                bodyEl.classList.add('dark-mode');
+                isTrollingActive = false;
+            }
+
+            // Hàm dọn dẹp timer trước khi bắt đầu troll mới
+            function clearTimersAndIntervals() {
+                if (currentTimeout) {
+                    clearTimeout(currentTimeout);
+                    currentTimeout = null;
+                }
+                if (countdownInterval) {
+                    clearInterval(countdownInterval);
+                    countdownInterval = null;
+                }
+            }
+
+            // Reset to trạng thái ban đầu (chơi lại)
+            function resetToInitial() {
+                // dọn dẹp mọi timer
+                clearTimersAndIntervals();
+                // Ẩn overlay đáng sợ nếu đang hiện
+                if (scaryOverlayElement) {
+                    scaryOverlayElement.remove();
+                    scaryOverlayElement = null;
+                    document.body.classList.remove('no-scroll');
+                }
+                // Xóa dark mode
+                bodyEl.classList.remove('dark-mode');
+                // Hiển thị lại happyUI, ẩn các khu vực khác
+                happyUI.classList.remove('hidden');
+                countdownArea.classList.add('hidden');
+                afterTrollUI.classList.add('hidden');
+                // reset state
+                isTrollingActive = false;
+                container.style.transform = "";
+                // Đảm bảo không còn rung
+                bodyEl.classList.remove('shake-global');
+            }
+
+            // Bắt đầu quá trình troll (countdown 3 2 1)
+            function startTrollProcess() {
+                if (isTrollingActive) return;
+                isTrollingActive = true;
+                clearTimersAndIntervals();
+
+                // Ẩn happyUI, hiện countdown
+                happyUI.classList.add('hidden');
+                countdownArea.classList.remove('hidden');
+                afterTrollUI.classList.add('hidden');
+
+                let countdownValue = 3;
+                countdownNumberSpan.innerText = countdownValue;
+
+                // Đếm ngược mỗi giây
+                countdownInterval = setInterval(() => {
+                    countdownValue--;
+                    if (countdownValue >= 1) {
+                        countdownNumberSpan.innerText = countdownValue;
+                        // Thêm hiệu ứng nhấp nháy nhẹ
+                        countdownNumberSpan.style.transform = "scale(1.2)";
+                        setTimeout(() => { if(countdownNumberSpan) countdownNumberSpan.style.transform = ""; }, 150);
+                    } else if (countdownValue === 0) {
+                        // Kết thúc đếm, clear interval
+                        clearInterval(countdownInterval);
+                        countdownInterval = null;
+                        countdownNumberSpan.innerText = "0!";
+                        // Ngay lập tức show fullscreen scare
+                        // Trước khi show, thêm rung nhẹ
+                        shakeScreenEffect(2);
+                        // hiển thị overlay đáng sợ + âm thanh
+                        showScaryFullscreen();
+                    }
+                }, 1000);
+
+                // Timeout an toàn nếu interval bị lỗi vẫn show troll sau 3.5s
+                currentTimeout = setTimeout(() => {
+                    if (countdownInterval) {
+                        clearInterval(countdownInterval);
+                        countdownInterval = null;
+                    }
+                    if (scaryOverlayElement === null && document.body.contains(countdownArea) && !afterTrollUI.classList.contains('hidden') === false) {
+                        // Nếu chưa có overlay thì ép show
+                        showScaryFullscreen();
+                    }
+                }, 3500);
+            }
+
+            // Sự kiện click nút "NHẬN QUÀ"
+            surpriseBtn.addEventListener('click', async (e) => {
+                if (isTrollingActive) return;
+                // Kích hoạt audio context (cần user tương tác) chuẩn bị âm thanh
+                if (!audioCtx) {
+                    await initAudio();
+                }
+                if (audioCtx && audioCtx.state === 'suspended') {
+                    audioCtx.resume().catch(e=>console.log("audio resume failed"));
+                }
+                // Tạo buffer âm thanh nếu chưa có
+                if (!screamAudioBuffer && audioCtx) {
+                    // tạo buffer khi cần
+                    const sampleRate = audioCtx.sampleRate;
+                    const duration = 1.2;
+                    const frameCount = sampleRate * duration;
+                    const buffer = audioCtx.createBuffer(1, frameCount, sampleRate);
+                    const channel = buffer.getChannelData(0);
+                    for (let i = 0; i < frameCount; i++) {
+                        const t = i / sampleRate;
+                        let val = Math.sin(2 * Math.PI * (500 + t*500) * t) * (1-t) + (Math.random() - 0.5) * 0.6;
+                        channel[i] = Math.min(0.8, Math.max(-0.8, val));
+                    }
+                    screamAudioBuffer = buffer;
+                }
+                startTrollProcess();
+            });
+
+            // Nút thử lại
+            retryBtn.addEventListener('click', () => {
+                if (isTrollingActive) return;
+                resetToInitial();
+                // Nếu có overlay khi reset thì dọn dẹp
+                if (scaryOverlayElement) {
+                    scaryOverlayElement.remove();
+                    scaryOverlayElement = null;
+                    document.body.classList.remove('no-scroll');
+                }
+            });
+
+            resetSmallBtn.addEventListener('click', () => {
+                resetToInitial();
+                if (scaryOverlayElement) {
+                    scaryOverlayElement.remove();
+                    scaryOverlayElement = null;
+                    document.body.classList.remove('no-scroll');
+                }
+            });
+
+            // Preload ban đầu : không làm gì, nhưng đảm bảo khi reset không lỗi
+            // Nếu người dùng click nhiều lần không bị lỗi
+            // Xử lý nếu có overlay tồn tại và click retry thì remove
+        })();
+    </script>
+</body>
+</html>
